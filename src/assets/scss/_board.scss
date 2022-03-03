@@ -1,0 +1,97 @@
+// Game Board
+.board {
+    border: 1px solid $orange;
+    box-shadow: 0 0 4px 4px $orange;
+    padding: 18px;
+    @include grid(4, 6, 12px);
+    position: relative;
+    overflow: auto;
+}
+
+
+// Game Loader
+.loader {
+    position: relative;
+    height: 10px;
+    width: 75%;
+    border: 10px solid $slate;
+    border-radius: 15px;
+
+    &__inner {
+        position: absolute;
+        background-color: $orange;
+        width: 0px;
+        height: 10px;
+        border-radius: 15px;
+    }
+
+    &__inner-animate {
+        animation: progress 4s infinite linear;
+    }
+
+    &-wrap {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: $off-white;
+    }
+
+    &-wrap:not(.loader-wrap--dissolve) {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    &-wrap--dissolve {
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0s 1s, opacity 1s linear;
+    }
+}
+
+.finished {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: $off-white;
+    color: $slate;
+    font-size: 18px;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 1s, opacity 1s linear;
+
+    &--fade-in {
+        visibility: visible;
+        opacity: 1;
+        transition: opacity 0.5s 1s linear;
+    }
+  
+    p {
+        padding: 0 2.5rem;
+
+        &:first-child {
+            font-size: 24px;
+            font-weight: $bold;
+        } 
+    }
+}
+
+@media (min-width: $screen-sm) {
+    .board {
+        @include grid(6, 4, 18px);
+    }
+}
+
+.mobile {
+
+    @media (max-width: 767px) and (orientation: landscape) {
+        .board {
+            @include grid(8, 3, 8px);
+        }
+    }
+
+    @media (min-width: 768px) and (orientation: landscape) {
+        .board {
+            @include grid(8, 3, 12px);
+        }
+    }
+}

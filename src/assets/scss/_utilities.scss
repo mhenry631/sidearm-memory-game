@@ -1,0 +1,65 @@
+// Basic utility classes modeled roughly after Boostrap
+.text-center {
+    text-align: center;
+}
+
+.d-inline-block {
+    display: inline-block;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+@media (min-width: $screen-sm) {
+    .flex-sm-row {
+        flex-direction: row;
+    }
+
+    .justify-content-sm-between {
+        justify-content: space-between;
+    }
+}
+
+// Create set of grid styles
+@mixin grid($cols, $rows, $gap: 1rem) {
+    display: grid;
+    grid-template-columns: repeat($cols, 1fr);
+    grid-template-rows: repeat($rows, 1fr);
+    gap: $gap;
+}
+
+// Keyframe animation for loader
+@keyframes progress{
+    0%{
+      width: 0%;
+    }
+    25%{
+        width: 50%;
+    }
+    50%{
+        width: 75%;
+    }
+    75%{
+        width: 85%;
+    }
+    100%{
+        width: 100%;
+    }
+};
